@@ -1,0 +1,25 @@
+---
+const links = [
+  { title: "Home", link: "/" },
+  { title: "About", path: "/about" },
+  { title: "Portfolio", path: "/portfolio" },
+  { title: "Contact", path: "/contact" },
+];
+---
+
+<nav class="navbar bg-base-100">
+  <div class="navbar-start">
+    <a href="/" class="btn btn-ghost normal-case text-xl">&#x52; &#x304;</a>
+  </div>
+  <div class="navbar-end hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.path}>{link.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
