@@ -9,8 +9,15 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-theme="dracula">
+<html lang="en">
   <head>
+    <script is:inline>
+      const currentTheme = localStorage.getItem("data-theme");
+      document.documentElement.setAttribute(
+        "data-theme",
+        currentTheme ?? "autumn"
+      );
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

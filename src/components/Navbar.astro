@@ -1,25 +1,40 @@
 ---
-const links = [
-  { title: "Home", link: "/" },
-  { title: "About", path: "/about" },
-  { title: "Portfolio", path: "/portfolio" },
-  { title: "Contact", path: "/contact" },
-];
+import { Icon } from "astro-icon";
+
+import Navlinks from "./Navlinks.astro";
+import Sidebar from "./Sidebar.astro";
+import ThemeSwitcher from "./ThemeSwitcher.astro";
 ---
 
 <nav class="navbar bg-base-100">
   <div class="navbar-start">
-    <a href="/" class="btn btn-ghost normal-case text-xl">&#x52; &#x304;</a>
+    <a href="/" class="text-xl normal-case btn btn-ghost logo">&#x52; &#x304;</a
+    >
   </div>
-  <div class="navbar-end hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
-      {
-        links.map((link) => (
-          <li>
-            <a href={link.path}>{link.title}</a>
-          </li>
-        ))
-      }
+  <div class="navbar-center">
+    <ThemeSwitcher />
+  </div>
+  <div class="navbar-end">
+    <ul class="hidden px-1 md:flex menu menu-horizontal" role="navigation">
+      <Navlinks />
     </ul>
+    <button
+      aria-expanded="false"
+      aria-label="Open mobile navigation"
+      class="md:hidden"
+    >
+      <Icon name="feather:menu" width={25} />
+    </button>
+    <Sidebar />
   </div>
 </nav>
+
+<script>
+  const sidebar = document.querySelector("[data-name='sidebar']");
+
+  const toggleSidebar = () => sidebar?.classList.toggle("-translate-y-full");
+
+  document
+    .querySelectorAll("button")
+    .forEach((button) => button.addEventListener("click", toggleSidebar));
+</script>

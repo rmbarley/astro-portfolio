@@ -1,0 +1,28 @@
+---
+interface Props {
+  orientation?: string;
+}
+
+const navLinks = [
+  { title: "Home", path: "/" },
+  { title: "About", path: "/about" },
+  { title: "Portfolio", path: "/portfolio" },
+  { title: "Contact", path: "/contact" },
+];
+
+const currentPath = new URL(Astro.request.url).pathname;
+console.log(currentPath);
+const { orientation = "horizontal" } = Astro.props;
+---
+
+<ul class={`px-1 menu menu-${orientation} items-center`}>
+  {
+    navLinks.map((link) => (
+      <li role="none">
+        <a href={link.path} class={currentPath === link.path ? "active" : ""}>
+          {link.title}
+        </a>
+      </li>
+    ))
+  }
+</ul>

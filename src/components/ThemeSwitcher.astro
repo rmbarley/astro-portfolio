@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<label class="swap swap-rotate">
+  <input type="checkbox" id="toggle" />
+  <Icon name="fe:sunny-o" class="w-10 h-10 fill-current swap-on" width={25} />
+  <Icon name="fe:moon" class="w-10 h-10 fill-current swap-off" width={25} />
+</label>
+
+<script>
+  const input = document.querySelector("input");
+  input?.addEventListener("change", () => {
+    const d = document.documentElement;
+    const sun = document.querySelector("[name='fe:sunny-o']");
+    const moon = document.querySelector("[name='fe:moon]");
+
+    const theme = input?.checked ? "dracula" : "autumn";
+    d.setAttribute("data-theme", theme);
+    localStorage.setItem("data-theme", theme);
+  });
+</script>
