@@ -1,9 +1,51 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { timelineEvents } from "src/util/constants";
+timelineEvents.sort((a, b) => (a.dateFrom > b.dateFrom ? -1 : 1));
 ---
 
-<Layout title="Welcome to Astro.">
-  <main>
-    <h1>Coming Soon</h1>
+<Layout title="About Me">
+  <main class="min-h-content hero bg-base-200 flex flex-col">
+    <section class="max-w-lg space-y-6">
+      <h1 class="text-5xl font-bold text-left">
+        <span class="text-accent">Hello</span>, <br />Again
+      </h1>
+    </section>
+    <section class="relative wrap overflow-hidden p-10 h-full w-7/12">
+      <div
+        class="border-2-2 absolute border-opacity-20 border-primary-700 h-full border"
+        style="left: 50%"
+      >
+      </div>
+
+      {
+        timelineEvents.map((event, idx) => {
+          return (
+            <div
+              class={`mb-8 flex justify-between items-center w-full ${
+                idx % 2 == 0 ? "flex-row-reverse" : ""
+              }`}
+            >
+              <div class="order-1 w-5/12" />
+              <div class="z-20 flex items-center order-1 bg-white shadow-xl w-20 h-20 rounded-full">
+                <img src={event.icon} class="rounded-full" />
+              </div>
+              <div class="order-1 bg-primary rounded-lg shadow-xl md:w-5/12 px-6 py-4">
+                <h3 class="font-bold text-base-100 text-xl">
+                  {event.role ? event.role + " @ " : ""} {event.title}
+                </h3>
+                <h5 class="mb-3 font-semibold text-neutral text-md">
+                  {event.location} {event.dateFrom} &mdash;
+                  {event.dateTo || "Present"}
+                </h5>
+                <p class="text-sm font-medium leading-snug tracking-wide text-base-100 text-opacity-100">
+                  {event.description}
+                </p>
+              </div>
+            </div>
+          );
+        })
+      }
+    </section>
   </main>
 </Layout>
