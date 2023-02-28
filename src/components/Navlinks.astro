@@ -18,7 +18,7 @@ const { orientation = "horizontal" } = Astro.props;
 <ul class={`px-1 menu menu-${orientation} items-center`}>
   {
     navLinks.map((link) => (
-      <li role="none">
+      <li role="none" class="pl-2">
         <a href={link.path} class={currentPath === link.path ? "active" : ""}>
           {link.title}
         </a>
