@@ -22,6 +22,7 @@ import ThemeSwitcher from "./ThemeSwitcher.astro";
       aria-expanded="false"
       aria-label="Open mobile navigation"
       class="md:hidden"
+      data-label="toggle-sidebar"
     >
       <Icon name="feather:menu" width={25} />
     </button>
@@ -31,10 +32,8 @@ import ThemeSwitcher from "./ThemeSwitcher.astro";
 
 <script>
   const sidebar = document.querySelector("[data-name='sidebar']");
-
+  const buttons = document.querySelectorAll("[data-label]");
   const toggleSidebar = () => sidebar?.classList.toggle("-translate-y-full");
 
-  document
-    .querySelectorAll("button")
-    .forEach((button) => button.addEventListener("click", toggleSidebar));
+  buttons.forEach((button) => button.addEventListener("click", toggleSidebar));
 </script>

@@ -8,7 +8,11 @@ import Navlinks from "./Navlinks.astro";
   data-name="sidebar"
   class="absolute inset-y-0 z-50 w-full h-64 p-5 transition duration-500 ease-in-out transform -translate-y-full bg-base-100"
 >
-  <button aria-label="Close mobile navigation" class="float-right">
+  <button
+    aria-label="Close mobile navigation"
+    data-label="toggle-sidebar"
+    class="float-right"
+  >
     <Icon name="fe:close" width={25} data-role="close" />
   </button>
   <Navlinks orientation="vertical" />
