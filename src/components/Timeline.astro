@@ -1,0 +1,29 @@
+---
+import { timelineEvents } from 'src/util/constants';
+timelineEvents.sort((a, b) => (a.dateFrom > b.dateFrom ? -1 : 1));
+
+---
+<div class="max-w-xl">
+    <div class="grid gap-4 mx-4 grid-cols-20">
+      <div class="relative col-span-20 px-4 space-y-6 sm:col-span-20">
+        <div
+          class="col-span-14 space-y-12 relative px-4 sm:col-span-20 sm:space-y-8 sm:before:absolute sm:before:top-2 sm:before:bottom-0 sm:before:w-0.5 sm:before:-left-3 before:bg-neutral"
+        >
+          {
+            timelineEvents.map((event, idx) => (
+              <div class="flex flex-col sm:relative sm:before:absolute sm:before:top-2 sm:before:w-4 sm:before:h-4 sm:before:rounded-full sm:before:left-[-35px] sm:before:z-[1] before:bg-neutral">
+                <h3 class="text-xl font-semibold tracking-wide">
+                  {event.role ? event.role + ' @ ' : ''} {event.title}
+                </h3>
+                <time class="text-xs tracking-wide uppercase text-secondary">
+                  {event.location} {event.dateFrom} &mdash;
+                  {event.dateTo || 'Present'}
+                </time>
+                <p class="mt-3 text-base-content">{event.description}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,29 @@
+---
+import { Icon } from 'astro-icon';
+import FormInput from './FormInput.astro';
+---
+
+<div class="md:w-640 w-full p-8 bg-neutral rounded-xl shadow max-w-lg">
+  <form
+    class="form-control w-full space-y-4"
+    netlify
+    netlify-honeypot
+    name="contact"
+    method="POST"
+    action="/success"
+  >
+    <p class="hidden">
+      <label>
+        Don’t fill this out if you’re human: <input name="bot-field" />
+      </label>
+    </p>
+    <input type="hidden" name="form-name" value="contact" />
+    <FormInput element="input" type="text" label="Your name" n="name" />
+    <FormInput element="input" type="email" label="Your email" n="email" />
+    <FormInput element="textarea" label="Your message" n="message" />
+    <button class="btn btn-primary" type="submit">
+      Send
+      <Icon name="mdi:paper-airplane" size="16" class="ml-2" />
+    </button>
+  </form>
+</div>

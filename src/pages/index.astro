@@ -1,37 +1,38 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { CodeSnippet } from '../components';
+import Content from '@components/Content.astro';
+import Heading from '@components/Heading.astro';
+import Layout from '../layouts/Layout.astro';
+import AccentText from '@components/AccentText.astro';
 ---
 
 <Layout title="Ryan Barley">
-  <main class="min-h-screen hero bg-base-200">
-    <div class="flex-col hero-content lg:flex-row">
-      <img
-        src="photo.png"
-        alt="Not a picture of me"
-        class="max-w-sm rounded-lg lg:max-h-screen max-h-0"
-      />
-      <div class="max-w-lg space-y-6">
-        <h1 class="text-5xl font-bold text-left">
-          <span class="text-accent">Hi</span>, <br />I'm Ryan
-        </h1>
-        <p>
-          I'm a full-stack web developer, data person, consultant and all-round
-          software generalist based in the woods of New England
-        </p>
-        <p>
-          This is a complete overhaul of my website, and it is still very under
-          construction. If you're here, I probably thought it would be fun for
-          you to see what I'm currently working on. You can view my old website
-          (that hasn't been updated since before I landed my first big job) <a
-            href="https://rmbarley.github.io/portfolio/"
-            class="link link-primary">here</a
-          >.
-        </p>
-        <div class="mockup-code">
-          <pre data-prefix="$"><code>npx hello-ryan</code></pre>
-        </div>
-        <a href="/contact" class="btn btn-primary">Or, get in touch</a>
-      </div>
+  <div class="flex flex-col items-center justify-center gap-1 max-w-80 lg:flex-row">
+    <img
+      src="photo.png"
+      alt="Not a picture of me"
+      class="max-w-sm rounded-lg lg:max-h-screen max-h-0"
+    />
+    <div class="max-w-lg space-y-6">
+      <Heading level={4}>
+        <AccentText>Hi,</AccentText>
+        <br />I'm Ryan
+      </Heading>
+      <Content>
+        I'm a full-stack web developer, data person, consultant and all-round
+        software generalist based in the woods of New England
+      </Content>
+      <Content>
+        This is a complete overhaul of my website, and it is still very under
+        construction. If you're here, I probably thought it would be fun for you
+        to see what I'm currently working on. You can view my old website (that
+        hasn't been updated since before I landed my first big job) <a
+          href="https://rmbarley.github.io/portfolio/"
+          class="link link-primary">here</a
+        >.
+      </Content>
+      <CodeSnippet>npx hello-ryan</CodeSnippet>
+      <a href="/contact" class="btn btn-primary">Or, get in touch</a>
     </div>
-  </main>
+  </div>
 </Layout>

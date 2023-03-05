@@ -1,64 +1,19 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { Icon } from "astro-icon";
+import Layout from '../layouts/Layout.astro';
+
+import ContactForm from '@components/ContactForm.astro';
+import PageHeading from '@components/PageHeading.astro';
+
+const accentText = "Get In"
+const restOfHeading = "Touch"
+const content = [
+  "I'm excited to work with you! If you think I would be the right fit for that project you're working on, then feel free to reach out."
+]
 ---
 
 <Layout title="Contact">
-  <main class="min-h-screen bg-base-200 flex items-center flex-col">
-    <div class="text-center flex flex-col items-center my-12">
-      <h3 class="text-3xl font-semibold mb-4">
-        <span class="text-accent">Get In</span> Touch
-      </h3>
-      <p class="font-bold tracking-wider text-sm text-base-content w-3/5">
-        I'm excited to work with you! If you think I would be the right fit for
-        that project you're working on, then feel free to reach out.<p></p>
-      </p>
-      <div class="h-3/5 w-3/5 bg-neutral rounded-lg shadow mt-8 p-16">
-        <form
-          class="form-control w-full"
-          netlify
-          netlify-honeypot
-          name="contact"
-          method="POST"
-          action="/success"
-        >
-          <p class="hidden">
-            <label>
-              Don’t fill this out if you’re human: <input name="bot-field" />
-            </label>
-          </p>
-          <input type="hidden" name="form-name" value="contact" />
-          <input
-            id="name"
-            type="text"
-            title="Your name"
-            name="name"
-            placeholder="Your Name"
-            class="input input-bordered w-full mb-4"
-            required
-          />
-          <input
-            id="email"
-            type="email"
-            title="Your email"
-            name="email"
-            placeholder="Your email"
-            class="input input-bordered w-full mb-4"
-            required
-          />
-          <textarea
-            title="Your message"
-            class="textarea textarea-bordered h-32 mb-4"
-            name="message"
-            id="message"
-            placeholder="Your message"
-            required></textarea>
-          <button class="btn btn-primary" type="submit">
-            Send
-            <Icon name="mdi:paper-airplane" size="16" class="ml-2" />
-          </button>
-        </form>
-      </div>
-    </div>
-  </main>
+  <div class="flex flex-col justify-center items-center space-y-8">
+    <PageHeading accentText={accentText} restOfHeading={restOfHeading} content={content} />
+    <ContactForm />
+  </div>
 </Layout>

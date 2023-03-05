@@ -1,0 +1,23 @@
+---
+import Heading from '@components/Heading.astro';
+import AccentText from '@components/AccentText.astro';
+import Content from '@components/Content.astro';
+
+interface Props {
+    accentText: string,
+    restOfHeading: string,
+    content: string[]
+}
+
+const {accentText, restOfHeading, content} = Astro.props
+---
+<div class="flex lg:text-justify justify-center">
+    <div class="flex flex-col max-w-lg space-y-4">
+      <Heading level={4}>
+        <AccentText>{accentText}</AccentText> {" "} {restOfHeading}
+      </Heading>
+      {
+          content.map(p => <Content>{p}</Content>)
+      }
+    </div>
+  </div>

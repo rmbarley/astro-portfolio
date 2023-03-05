@@ -1,0 +1,25 @@
+---
+interface Props {
+  element: 'input' | 'textarea';
+  type?: 'text' | 'email' | 'password';
+  label: string;
+  n: string;
+}
+
+const { type, label, n, element } = Astro.props;
+---
+
+{
+  element === 'input' ? (
+    <input
+      type={type}
+      title={label}
+      name={n}
+      placeholder={label}
+      class="input input-bordered w-full"
+      required
+    />
+  ) : (
+    <textarea title={label} placeholder={label} name={n} class="textarea textarea-bordered h-32" required />
+  )
+}
