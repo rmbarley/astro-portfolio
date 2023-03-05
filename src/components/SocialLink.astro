@@ -1,0 +1,12 @@
+---
+import { Icon } from "astro-icon";
+ interface Props {
+    name: string;
+    path: string;
+ }
+
+ const {name, path} = Astro.props
+---
+<a href={path} target="_blank" referrerpolicy="no-referrer">
+    <Icon height={40} class="cursor-pointer hover:text-accent" name={name} />
+</a> 

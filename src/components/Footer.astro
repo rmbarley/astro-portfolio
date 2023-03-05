@@ -1,0 +1,14 @@
+---
+import SocialRow from './SocialRow.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="items-center p-4 footer bg-neutral text-neutral-content">
+  <div class="items-center grid-flow-col">
+    <a href="/" class="text-xl normal-case btn btn-ghost logo">&#x52; &#x304;</a
+    >
+    <p>Copyright Ryan Barley © {year} - All right reserved</p>
+  </div>
+  <SocialRow />
+</footer>

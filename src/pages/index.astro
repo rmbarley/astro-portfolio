@@ -4,6 +4,7 @@ import Content from '@components/Content.astro';
 import Heading from '@components/Heading.astro';
 import Layout from '../layouts/Layout.astro';
 import AccentText from '@components/AccentText.astro';
+import SocialRow from '@components/SocialRow.astro';
 ---
 
 <Layout title="Ryan Barley">
@@ -18,6 +19,9 @@ import AccentText from '@components/AccentText.astro';
         <AccentText>Hi,</AccentText>
         <br />I'm Ryan
       </Heading>
+      <div class="footer place-content-start">
+        <SocialRow />
+      </div>
       <Content>
         I'm a full-stack web developer, data person, consultant and all-round
         software generalist based in the woods of New England

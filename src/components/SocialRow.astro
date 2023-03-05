@@ -1,0 +1,13 @@
+---
+import SocialLink from "./SocialLink.astro";
+
+const socials = [
+  { name: 'mdi:linkedin', path: 'https://linkedin.com/in/rmbarley' },
+  { name: 'mdi:github', path: 'https://github.com/rmbarley' },
+  { name: 'simple-icons:polywork', path: 'https://poly.me/ryan_barley' },
+  { name: 'mdi:twitter', path: 'https://twitter.com/ryanbarleydev' },
+];
+---
+<div class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+  {socials.map(social => <SocialLink name={social.name} path={social.path} />)}
+</div>
