@@ -6,7 +6,10 @@ import { Icon } from "astro-icon";
  }
 
  const {name, path} = Astro.props
+
+ const icon = name.split(":")[1]
 ---
 <a href={path} target="_blank" referrerpolicy="no-referrer">
+    <span class="sr-only">Link to my {icon} profile.</span>
     <Icon height={40} class="cursor-pointer hover:text-accent" name={name} />
 </a> 
